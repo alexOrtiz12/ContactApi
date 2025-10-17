@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use((req, res, next) => {
-  res.setTimeout(120000, () => { 
+  res.setTimeout(300000, () => { 
     console.error("Request timeout: la petición tardó demasiado.");
     if (!res.headersSent) {
       res.status(408).json({ success: false, error: "Request timeout" });
