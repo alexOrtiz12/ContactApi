@@ -21,6 +21,9 @@ export const emailRepository = {
       `,
     };
 
+    console.log("Intentando enviar correo...");
     await transporter.sendMail(mailOptions);
+    console.log("Correo enviado exitosamente.");
+
   },
 };
