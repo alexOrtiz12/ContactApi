@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import contactRoutes from "./src/interfaces/routes/contactRoutes.js";
 import { errorHandler } from "./src/middlewares/errorHandler.js";
+import healthRoutes from "./src/interfaces/routes/healthRoutes.js"; // <- importar
 
 const app = express();
 
@@ -18,10 +19,12 @@ app.use((req, res, next) => {
   next();
 });
 
+// 🔹 Rutas de la API
 app.use("/api/contact", contactRoutes);
+
+// 🔹 Health check endpoint
+app.use("/health", healthRoutes);
 
 app.use(errorHandler);
 
 export default app;
-
-
